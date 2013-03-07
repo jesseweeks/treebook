@@ -7,7 +7,7 @@ Treebook::Application.routes.draw do
     get 'logout', to:'devise/sessions#destroy', as:'logout'
   end
 
-  resources :statuses
+  resources :statuses, :path => 'updates', :path_names => {:new => 'create'}
   get 'feed', to: 'statuses#index', as:'feed'
   root to: 'statuses#index'
 
