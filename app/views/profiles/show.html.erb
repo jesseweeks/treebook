@@ -5,17 +5,20 @@
 		</div>
 		<div class="span6">
 			<h1><%= @user.full_name %></h1>
-			<i><%= link_to "(edit my profile info)", edit_user_registration_path %></i>
+			<% if user_signed_in? %>
+				<i><%= link_to "(edit my profile info)", edit_user_registration_path %></i>
+			<% end %>
 		</div>
 	</div>
 </div>
 
-<div class="instructions">
-	<p>Customize your profile: </br> If you would like to have your own avatar, create a gravatar via www.gravatar.com and use the same email address you used to sign up here! </p>
-</div>
+<% if user_signed_in? %>
+	<div class="instructions">
+		<p>Customize your profile: </br> If you would like to have your own avatar, create a gravatar via www.gravatar.com and use the same email address you used to sign up here! </p>
+	</div>
+<% end %>
 
 <div class="statuses">
-	<h3>My Statuses</h3>
 	<div class="row">
 		<div class="span7">
 			<% if @statuses %>
