@@ -9,3 +9,9 @@ jesse:
   last_name: "Weeks"
   profile_name: "jesseweeks"
   email: "jesse@jesseweeks.net"
+
+john:
+  first_name: "John"
+  last_name: "Goodin"
+  profile_name: "johngoodin"
+  email: "john@jesseweeks.net"
