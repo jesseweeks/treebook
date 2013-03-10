@@ -12,7 +12,7 @@
 			<%= image_tag status.user.gravatar_url %>
 		</div>
 		<div class = "span7">
-			  <strong><%= status.user.full_name %></strong>
+			  <strong><a href='/<%=status.user.profile_name %>'><%= status.user.full_name %></a></strong>
 			  <p><%= status.content %></p>
 			<div class="meta">
 			  <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
