@@ -11,12 +11,10 @@
     </div>
   <% end %>
 
-  <%#= f.input :user_id, collection: User.all, select: current_user.id, default: current_user.id, label_method: :full_name, disabled:false %>
-
-      <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-      <%= f.input :content, label:"Status:"%>
-
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
+    <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+    <%= f.input :content, label:"Status:"%>
+ 
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>
