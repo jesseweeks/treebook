@@ -22,7 +22,7 @@
 	<div class="row">
 		<div class="span7">
 			<% if @statuses %>
-				<% @statuses.each do |status| %>
+				<% @statuses.reverse.each do |status| %>
 					<div class = "well">
 						<%= status.content %>
 						<hr />
