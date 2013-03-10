@@ -29,6 +29,21 @@ class StatusesControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
+  test "should be logged in to delete a status" do
+    assert_difference('Status.count') do
+      delete :destroy, id: @status
+    end
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should delete status when logged in" do
+    sign_in users (:jesse)
+    assert_difference('Status.count') do
+      delete :destroy, id: @status
+    end
+  end
+
   test "should create status when logged in" do
     sign_in users (:jesse)
     assert_difference('Status.count') do
