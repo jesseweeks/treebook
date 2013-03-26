@@ -21,7 +21,7 @@
 			  <p><%= status.content %></p>
 			<div class="meta">
 			  <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-			<% if status.user == current_user %>  
+			<% if status.user == current_user or current_user.try(:admin?)%>  
 			  <span class="admin">
 			    | <%= link_to "Edit", edit_status_path(status) %> | 
 			    <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
@@ -30,7 +30,7 @@
 			</div>
 			<% else %>
 				INVALID USER
-				<% if user_signed_in? %>
+				<% if current_user.try(:admin?) %>
 				<%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
 				<% end %>
 			<% end%>

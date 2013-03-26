@@ -9,6 +9,11 @@
 				<i><%= link_to "(edit my profile info)", edit_user_registration_path %></i>
 			<% end %>
 		</div>
+	<div class="admin">
+		<% if current_user.try(:admin?) %>
+		<b>I am logged in as an admin!</b>
+	<% end %>
+</div>
 	</div>
 </div>
 
@@ -27,7 +32,7 @@
 						<%= status.content %>
 						<hr />
 						<%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
-						<% if status.user == current_user %>  
+						<% if status.user == current_user or current_user.try(:admin?)%>  
 						  <span class="admin">
 						    | <%= link_to "Edit", edit_status_path(status) %> | 
 						    <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
